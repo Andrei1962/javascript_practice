@@ -1,4 +1,10 @@
-let money = +prompt('Ваш основной доход за месяц?');
+let money = +prompt('1 Ваш основной доход за месяц?');
+while(money == "") {
+  money = +prompt('вы не поставили значение. Ваш основной доход за месяц?');   
+}
+while(isNaN(money)) {
+  money = +prompt('вы поставили букву. Ваш основной доход за месяц?');  
+}
 let totalAmount = null;
 let additionallncome = null;
 let islncome = confirm('Есть ли у вас дополнительный доход?');
@@ -18,6 +24,7 @@ if(totalAmount > 120000) {
 } else if(totalAmount < 0) {
   alert('Что то пошло не так',totalAmount);
 }
+
 
 
 
