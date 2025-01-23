@@ -1,15 +1,25 @@
-let money = +prompt('1 Ваш основной доход за месяц?');
-while(money == "") {
-  money = +prompt('вы не поставили значение. Ваш основной доход за месяц?');   
-}
-while(isNaN(money)) {
-  money = +prompt('вы поставили букву. Ваш основной доход за месяц?');  
+let money = +prompt('Ваш основной доход за месяц?');
+while(money == "" || isNaN(money)) {
+  if (money == "" ) {
+    money = +prompt('вы не поставили значение. Ваш основной доход за месяц?'); 
+  }
+  if (isNaN(money)) {
+    money = +prompt('вы поставили букву. Ваш основной доход за месяц?'); 
+  }    
 }
 let totalAmount = null;
 let additionallncome = null;
 let islncome = confirm('Есть ли у вас дополнительный доход?');
 if (islncome == true) {
   additionallncome = +prompt('Какая сумма дополнительного дохода?');  
+  while(additionallncome == "" || isNaN(additionallncome)) {
+    if (additionallncome == "" ) {
+      additionallncome = +prompt('вы не поставили значение. Какая сумма дополнительного дохода?'); 
+    }
+    if (isNaN(additionallncome)) {
+      additionallncome = +prompt('вы поставили букву. Какая сумма дополнительного дохода?'); 
+    }
+  }  
   totalAmount = money + additionallncome;
 } else if (islncome == false) {
   totalAmount = money;
