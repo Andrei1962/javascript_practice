@@ -55,15 +55,11 @@ let products = [
     sale: 0
   },
 ];
-let fruit = products.filter(item => item.type === 'fruits');              /* выделяем массив с item = type: 'fruits' */
-let sum = fruit.reduce((sum, item) => {                                   /* суммируем price всего массива */
-  return sum + item.price;
-},0);                                                                     /* вначале  sum = 0 */
-console.log(sum);
-
-let electronics = products.filter(item => item.type === 'technic');       /* выделяем массив с item = type: 'technic' */
-let electronics2 = electronics.filter(item => item.sale === 0);           /* выделяем массив с item.sale = 0 */
-let sum2 = electronics2.reduce((sum2, item) => {                          /* суммируем price всего массива */
-  return sum2 + item.price;
-},0);                                                                     /* вначале  sum2 = 0 */
-console.log(sum2);
+function enumeration(array, type) {                                     /* функция - enumeration */
+  let newArray = array.filter(item => item.type === type);              /* фильтруем массив array по type */
+  return newArray;                                                      /* отфильтрованный массив */
+}
+let fruits = enumeration(products,'fruits');
+console.log('fruits', fruits);
+let technic = enumeration(products,'technic');
+console.log('technic', technic);
